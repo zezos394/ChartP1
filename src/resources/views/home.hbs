@@ -1,0 +1,149 @@
+<div id="slider">
+</div>
+{{!-- Back to top button --}}
+            <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-chevron-up"></i></button>
+            <script>
+                //Get the button
+                var mybutton = document.getElementById("myBtn");
+
+                // When the user scrolls down 20px from the top of the document, show the button
+                window.onscroll = function() {scrollFunction()};
+
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                        mybutton.style.display = "block";
+                    } else {
+                        mybutton.style.display = "none";
+                    }
+                }
+
+            // When the user clicks on the button, scroll to the top of the document
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }
+            </script>
+<div id="content">
+            <!-- About section-->
+            <div id="band" class="content-section">
+                <h2 class="section-heading">DRAW CHART</h2>
+                <p class="about-text">
+                    Visual representations help us to understand data quickly. When you show an effective graph or chart, your report or presentation gains clarity and authority, whether you're comparing sales figures or highlighting a trend.
+                    But which kind of chart or graph should you choose? If you click on the chart option in your spreadsheet program, you'll likely be presented with many styles. They all look smart, but which one works best for your data, and for your audience?
+                </p>
+                <p class="about-text">
+                    Charts are a common method to visually illustrate relationships in the data. The purpose of a chart is to present data that are too numerous or complicated to be described adequately in the text and in less space.
+                </p>
+            </div>
+            <!-- Chart section-->
+            <div id="book" class="book-section">
+                <div class="content-section">
+                    <h2 class="section-heading text-white">TYPES OF CHART</h2>
+                    <p class="section-subheading text-white">Want to draw a chart? Try some</p>
+                    
+                    <h2 class="slide-center">Find your suitable chart here</h2>
+
+                    <div class="slide-content slide-display-container">
+                            <div class="mt-4">
+                                <div class="row">
+                                    
+                                    <div class="col-sm-12 col-lg-12" style="margin-top:-24px;">
+                                        <div class="card mySlides" style="margin-top: 16px;>
+                                            <a href="/charts/line-chart">
+                                                <img src="https://ielts-nguyenhuyen.com/wp-content/uploads/2018/01/cach-lam-ielts-writing-task-1-line-graph.png" class="card-img-top" alt="Line chart">
+                                            </a>
+                                            <div class="card-body">
+                                                <a href="/charts/line-chart" style="text-decoration: none; text-transform: uppercase;" >
+                                                    <h3 class="card-title" >Line chart</h3>
+                                                </a>
+                                                <p class="card-text">The line chart, or line graph, connects several distinct data points, presenting them as one continuous evolution. Use line charts to view trends in data, usually over time (like stock price changes over five years or website page views for the month). The result is a simple, straightforward way to visualize changes in one value relative to another.</p>
+                                                <a href="/charts/line-chart" class="btn btn-primary btn-draw" style="left: 44%; position: relative;">Draw now</a>
+                                            </div>
+                                        </div>
+                                        <div class="card mySlides" style="margin-top: 16px;>
+                                            <a href="/charts/pie-chart">
+                                                <img src="https://www.tibco.com/sites/tibco/files/media_entity/2022-01/PieChart-01.svg" class="card-img-top" alt="Pie chart">
+                                            </a>
+                                            <div class="card-body">
+                                                <a href="/charts/pie-chart" style="text-decoration: none; text-transform: uppercase;" >
+                                                    <h3 class="card-title" >Pie chart</h3>
+                                                </a>
+                                                <p class="card-text">Pie charts are powerful for adding detail to other visualizations. Alone, a pie chart doesn’t give the viewer a way to quickly and accurately compare information. Since the viewer has to create context on their own, key points from your data are missed. Instead of making a pie chart the focus of your dashboard, try using them to drill down on other visualizations.</p>
+                                                <a href="/charts/pie-chart" class="btn btn-primary btn-draw" style="left: 44%; position: relative;">Draw now</a>
+                                            </div>
+                                        </div>
+                                        <div class="card mySlides" style="margin-top: 16px;>
+                                            <a href="/charts/bar-chart">
+                                                <img src="https://images.twinkl.co.uk/tw1n/image/private/t_630/u/ux/barchart_ver_1.jpg" class="card-img-top" alt="Bar chart">
+                                            </a>
+                                            <div class="card-body">
+                                                <a href="/charts/bar-chart" style="text-decoration: none; text-transform: uppercase;" >
+                                                    <h3 class="card-title" >Bar chart</h3>
+                                                </a>
+                                                <p class="card-text">Bar charts are one of the most common data visualizations. You can use them to quickly compare data across categories, highlight differences, show trends and outliers, and reveal historical highs and lows at a glance. Bar charts are especially effective when you have data that can be split into multiple categories.</p>
+                                                <a href="/charts/bar-chart" class="btn btn-primary btn-draw" style="left: 44%; position: relative;">Draw now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                            <button class="slide-button slide-display-right" onclick="plusDivs(1)"><i class="fas fa-forward"></i></button>
+                    </div>
+
+                    <script>
+                        var slideIndex = 1;
+                        showDivs(slideIndex);
+
+                        function plusDivs(n) {
+                            showDivs(slideIndex += n);
+                        }
+
+                        function showDivs(n) {
+                            var i;
+                            var x = document.getElementsByClassName("mySlides");
+                            if (n > x.length) {slideIndex = 1}
+                            if (n < 1) {slideIndex = x.length}
+                            for (i = 0; i < x.length; i++) {
+                                x[i].style.display = "none";  
+                            }
+                            x[slideIndex-1].style.display = "inline-block";  
+                        }
+                    </script>
+                </div>   
+            </div>
+
+        <!-- Contact section-->
+            <div id="contact" class="content-section">
+                <h2 class="section-heading">Contact</h2>
+                <div class="row contact-row">
+                    <p class="col col-two contact-subheading section-subheading">Please give me your opinions about the website</p>
+                </div>
+                <div class="row contact-content">
+                    <div class="col col-two contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Hai Ba Trung, Ha Noi</p>
+                        <p><i class="fas fa-phone"></i> 012 346 789</p>
+                        <p><i class="fas fa-envelope"></i> ducnguyen231001@gmail.com</p>
+                    </div>
+                    <div class="col col-two contact-form">
+                        <form action="mailto:ducnguyen231001@gmail.com" method="POST" enctype="multipart/form-data" name="EmailForm">
+                            <input class="submit-button" type="submit" value="SEND FEEDBACK">
+                        </form>
+                    </div>
+                </div>
+            </div>
+</div>
+<style>
+    .card-img-top{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 500px;
+        height: 340px;
+    }
+    .btn-draw{
+        background-color: #d5808d !important;
+        border-color: #d5808d !important;
+    }
+
+</style>

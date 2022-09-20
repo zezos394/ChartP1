@@ -1,0 +1,339 @@
+
+
+<div class="mt-4">
+  <img src="https://www.tibco.com/sites/tibco/files/media_entity/2022-01/PieChart-01.svg" class="card-img-top" alt="Pie chart" />
+  <div class="detail-place">
+    <h1 style="text-align: center;" class="card-title">PIE CHART</h1>
+    <p
+      class="chart-description"
+      style="font-size: 18px;"
+    >Pie charts are powerful for adding detail to other visualizations. Alone, a pie chart doesn’t give the viewer a way to quickly and accurately compare information. Since the viewer has to create context on their own, key points from your data are missed. Instead of making a pie chart the focus of your dashboard, try using them to drill down on other visualizations.</p>
+  </div>
+
+{{!-- Examle place --}}
+  <div class="example-place">
+    <h2 >Here is your chart</h2>
+    <div>
+        <div class="chart-box">
+            <canvas id="exChart"></canvas>
+        </div>
+        <div>
+            <button id="btnDownload" class="btn btn-primary download-btn">Download</button>
+        </div>
+        <h4 class="mt-4">Config</h4>
+        <div class="change-group">
+            <h5 class="mt-4">Change title</h5>
+            <input onkeyup="updateLabel(this)" id="title" class="form-control form-config" onchange="changetitle()" type="text" placeholder="My Chart">
+            <button class="btn btn-outline-success  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Change chart to</button>
+            <ul class="dropdown-menu">
+                    <li ><a id="polarArea" class="dropdown-item" onclick="changePolarArea()">PolarArea chart</a></li>
+                    <li ><a id="doughnut" class="dropdown-item" onclick="changeDoughnut()">Doughnut chart</a></li>
+            </ul>
+            <button class="btn btn-outline-danger" style="display:none" id="pie" onclick="goBack()">Go back!!</button>
+        </div>  
+    </div>
+    <div class="change-group">
+        <h5 class="mt-4">Config data</h5>
+        <input type="number" min="1" id="inputplace" class="form-control form-config" placeholder="Place to change: 1 is the leftmost">
+        <input type="number" min="0" id="inputdata" class="form-control form-config2" placeholder="Value: 300" >
+        <input type="text" id="inputcolor" class="form-control form-config2" placeholder="Color: Red">
+        <input type="text" id="inputlabel" class="form-control form-config2" onkeydown="return /[a-z]/i.test(event.key)" placeholder="Data name: Red">
+        <button id="insertdata" class="btn btn-success" onclick="changeData()">Add data</button> <br>
+        <i>Your color can whether be in hex, text or rgb format. Choose your color </i>
+        <a class="choose-color" href="https://www.rapidtables.com/web/color/color-scheme.html" target="_blank">here</a>
+        <h5 class="mt-4">Delete data</h5>
+        <input type="number" min="1" id="deleteplace" class="form-control form-config" placeholder="Place to delete: 1 is the leftmost ">
+        {{!-- <button id="removedata" class="btn btn-danger" onclick="removeData()">Remove data</button> --}}
+        <button id="removedata2" class="btn btn-danger" onclick="removeData2()">Remove data</button>
+
+    </div>
+    <div class="mt-4">
+        {{!-- <button onclick="hideTable()" id="hide" style="display:none" class="btn btn-outline-danger table-toggle">Hide the table data</button>
+        <button onclick="showTable()"  class="btn btn-outline-success table-toggle">Show the table data</button> --}}
+    </div>
+    {{!-- Data table --}}
+    <table id="info"  class="table mt-4" style="display:none">
+        <thead class="table-info">
+            <tr>
+                <td>Labels</td>
+                <td> Data</td>
+                <td>2nd Data</td>
+            </tr>
+        </thead>
+        <tbody id="tabledata">
+            {{!-- <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+            </tr> --}}
+        </tbody>
+    </table>
+  </div>
+</div>
+  <script>
+    const data = {
+            labels: [
+                'Red',
+                'Blue',
+                'Yellow'
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [300, 50, 100],
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+                ],
+                hoverOffset: 4
+
+            }]
+    };
+    const bgColor = {
+        id: 'bgColor',
+        beforeDraw: (chart, options) =>{
+            const {ctx, width, height} = chart
+            ctx.fillStyle = 'white'
+            ctx.fillRect(0,0,width,height)
+            ctx.restore();
+        }
+    }
+    const config = { 
+        type: 'pie',
+        data: data, 
+        options: {
+            responsive: true,
+            plugins: {
+                
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'My chart',
+                    font: {
+                        size: 30,
+                    }   
+                }
+            },
+        },
+        plugins: [ChartDataLabels, bgColor],
+        
+            {{!-- options: {
+                font: {
+                        weight: 'bold',
+                        size: 40
+                    },
+            } --}}
+    };
+  </script>
+  <script>
+   // render chart
+    const exChart = new Chart( 
+        document.getElementById('exChart'), 
+        config 
+    );
+
+    // Change Chart type 
+    function changePolarArea(){
+        const x = document.getElementById("pie")
+        x.style.display = "inline-block"
+        const updatetype = 'polarArea'
+        exChart.config.type = updatetype
+        exChart.update()
+    }
+    function changeDoughnut(){
+        const x = document.getElementById("pie")
+        x.style.display = "inline-block"
+        const updatetype = 'doughnut'
+        exChart.config.type = updatetype
+        exChart.update()
+    }
+    function goBack(){
+        //const y = document.getElementById("bar")
+        const z = document.getElementById("pie")
+        z.style.display = "none"
+        const updatetype = 'pie'
+        exChart.config.type = updatetype
+        exChart.update()  
+    }
+
+    //Show/Hide table data
+    function showTable(){
+        const x = document.getElementById("hide")
+        const z = document.getElementById("info")
+        x.style.display = "block"
+        z.style.display = "table"
+    }
+    function hideTable(){
+        const x = document.getElementById("hide")
+        const z = document.getElementById("info")
+        x.style.display = "none"
+        z.style.display = "none"
+    }
+    //Change title
+    function changetitle(){
+        const x = document.getElementById("title")
+        exChart.config.options.plugins.title.text = x.value
+        exChart.update()
+    }
+    //Change label
+    function changeLabel1(){
+        const x = document.getElementById("label1")
+        exChart.config.data.datasets[0].label = x.value
+        exChart.update()
+    }
+    function changeLabel2(){
+        const x = document.getElementById("label2")
+        exChart.config.data.datasets[1].label = x.value
+        exChart.update()
+    }
+    //Download chart
+    const btnDownload = document.querySelector("#btnDownload")
+    const downloadChart = document.querySelector("#exChart")
+    btnDownload.addEventListener("click", function(){
+        //IE-Edge Support (PNG only)
+        if(window.navigator.msSaveBlob){
+            window.navigator.msSaveBlob(downloadChart.msToBlob(),"chart-imgae.png")
+        } else{
+            const a = document.createElement("a")
+            document.body.appendChild(a)
+            a.href = downloadChart.toDataURL("image/png", 1.0)
+            a.download = "chart-image.png"
+            a.click()
+            document.body.removeChild(a)
+        }
+    })
+    //Add data
+    function changeData(){
+        const inputdata = document.getElementById('inputdata')
+        const inputplace = document.getElementById('inputplace')
+        const inputcolor = document.getElementById('inputcolor')
+        exChart.data.datasets[0].data[(inputplace.value-1)] = inputdata.value
+        exChart.data.datasets[0].backgroundColor[(inputplace.value-1)] = inputcolor.value
+        exChart.data.labels[(inputplace.value-1)] = inputlabel.value
+        exChart.resize()
+        exChart.update()
+    }
+    //Remove data
+    function removeData2(){
+        const deleteplace = document.getElementById('deleteplace')
+        exChart.data.datasets[0].data.splice((deleteplace.value-1),1)
+        exChart.data.datasets[0].backgroundColor.splice((deleteplace.value-1),1)
+        exChart.data.labels.splice((deleteplace.value-1),1)
+        exChart.update()
+    }
+
+    //Display data
+    const tabledata = document.getElementById("tabledata")
+    for( i = 0; i < exChart.data.labels.length; i++){
+        const tabledatatr = document.createElement("tr")
+        const tabledatatd = document.createElement("td")
+        const tabledatatd2 = document.createElement("td")
+        const tabledatatd3 = document.createElement("td")
+        tabledatatd2.style.color = exChart.data.datasets[0].borderColor
+        tabledatatd3.style.color = exChart.data.datasets[1].borderColor
+        //append the matching pair
+        const labeltext = document.createTextNode(exChart.data.labels[i])
+        const datapoint = document.createTextNode(exChart.data.datasets[0].data[i])
+        const datapoint2 = document.createTextNode(exChart.data.datasets[1].data[i])
+        tabledatatd.appendChild(labeltext)
+        tabledatatd2.appendChild(datapoint)
+        tabledatatd3.appendChild(datapoint2)
+        //append the children
+        tabledata.appendChild(tabledatatr)
+        tabledatatr.appendChild(tabledatatd)
+        tabledatatr.appendChild(tabledatatd2)
+        tabledatatr.appendChild(tabledatatd3)
+    }
+  </script>
+<style>
+  body{ 
+
+  } 
+  .card-img-top{ 
+        display: block; 
+        margin-left: auto; 
+        margin-right: auto;
+        max-width: 40%; 
+        height:auto; 
+        align-items: center; 
+  } 
+  .book-place{ 
+      width:35%;
+        float:right; 
+        margin-right: 12px; 
+  } 
+  .book-btn{ 
+    font-size: 24px; 
+    color: black;
+    text-decoration: none; 
+    margin-top: 80px; 
+    margin-left: -70%; 
+    background: none;
+    border: 0; 
+    display: block; 
+    margin: 20px auto; 
+    border: 2px solid rgb(39, 160,39); 
+    padding: 15px 30px; 
+    width: 150px; 
+    outline: none; 
+    font-weight: 500;
+    border-radius: 1.5rem; 
+    transition: 0.25s; cursor: pointer; 
+  } 
+  .book-btn:hover{
+    background: linear-gradient(#79df79, #276e27); border: 0; } .detail-place{
+    margin-left: 12px; 
+  } 
+  .chart-description{ 
+      margin-left: 160px; 
+      margin-right: 160px; 
+}
+    .example-place{
+        margin-left: 160px; 
+        margin-right: 160px; 
+    }
+    .draw-place{
+        margin-left: 160px; 
+        margin-right: 160px; 
+    }
+    .chart-box{
+        margin-right: auto;
+        margin-left:auto;
+        width: 60%; 
+        padding: 20px;
+        border-radius: 20px;
+        border: solid 2px rgba(255, 26, 104, 1);
+        background: white;
+        display: block;
+        align-items: center;
+    }
+    .download-btn{
+        float: right;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    .form-config{
+        width: 30%;
+        display: inline-block;
+    }
+    .form-config2{
+        width: 15%;
+        display: inline-block;
+    }
+    .table{
+        text-align: center;
+    }
+    .dropdown-menu{
+       
+    }
+    .table-toggle{
+        float: right;
+        margin-right: 6px;
+        margin-bottom: 8px;
+    }
+    .dropdown-item:hover{
+        cursor: pointer;
+        background-color: #1bbd29;
+    }
+</style>

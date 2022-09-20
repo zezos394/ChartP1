@@ -1,0 +1,326 @@
+/* Reset CSS */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
+
+html{
+    /* font-family: Arial, Helvetica, sans-serif; */
+    // font-family: 'Dongle', sans-serif;
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    scroll-behavior: smooth;
+}
+.clear{
+    clear: both;
+}
+
+.text-white{
+    color: white !important;
+}
+.text-center{
+    text-align: center !important;
+}
+.row{
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.row::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.col{
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.col-three{
+    width: 33.3333%
+}
+.col-two{
+    width: 50%;
+}
+.col-one{
+    width: 100%;
+}
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: black; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 8px; /* Some padding */
+    border-radius: 20px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+}
+#myBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+}
+.navbar{
+    background-color: #d5808d;
+    padding: 0;
+}
+.container-fluid{
+    padding-right: 0;
+}
+
+.navbar-light .navbar-brand {
+    font-weight: 600;
+    color: whitesmoke;
+}
+.nav-item{
+    font-weight: 550;
+    font-size: 20px;
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: whitesmoke;
+}
+.nav-item .nav-link a{
+    padding-right: 16px;
+}
+
+.navbar .btn{
+    font-size: 18px;
+    font-weight: 600;
+}
+.navbar .btn-outline-success {
+    color: whitesmoke;
+    background-color: #850e0a;
+}
+.navbar .btn-outline-success :hover{
+    background-color: #cc1711;
+    color: black;
+}
+
+.dropdown-item{
+    font-weight: 600;
+    font-size: 16px;
+}
+#slider{
+    // margin-top: 46px; 
+    padding-top: 50%; /* 50% chieu ngang cua chinh no */
+    background: url('https://wp-assets.infinum.com/uploads/2022/01/charts-in-flutter-0.jpeg') top center / cover no-repeat;
+    position: relative;
+}
+#content .content-section{
+    width: 800px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 64px 0px 112px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+#content .section-heading{
+    font-size: 30px;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+#content .section-subheading{
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 8px;
+    font-style: italic;
+    opacity: 0.6;
+}
+#content .about-text{
+    margin-top: 25px;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 1.4;
+}
+#content .member-list{
+    margin-top: 48px;
+    overflow: hidden;
+}
+#content .member-item{
+    text-align: center;
+}
+#content .member-name{
+    font-size: 15px;
+    
+}
+#conten .member-img{
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 4px;
+}
+#content .book-section{
+    background-color: #d5808d;
+}
+
+#content .stadium-list{
+    background-color: white;
+    margin-top: 36px;
+}
+.stadium-list li{
+    color: black;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 11px 16px;
+    border-bottom: 1px solid #ddd;
+    list-style-type: none;
+    
+}
+.stadium-list .sold-out{
+    background-color: #f44336;
+    color: #fff;
+    padding: 3px 4px;
+    margin-left: 16px;
+}
+.stadium-list .quantity{
+    background-color: yellow;
+    font-weight: 700;
+    /* float: right; */
+    color: black;
+    /* border-radius: 50%; */
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    padding: 3px 4px;
+    margin-left: 8px;
+}
+#content .slide-center{
+    text-align: center;
+    margin: 10px;
+    color: white;
+    font-style: italic;
+    font-size: 20px; 
+}
+#content .slide-button{
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    padding: 6px 16px;
+    margin-top: 4px;
+    border: none;
+    border-radius:0.8rem;
+    margin-left: 8px;
+}
+#content .mySlides{  
+}
+.slide-display-right{
+    left: 48%;
+    position: absolute;
+}
+
+.slide-display-left{
+    margin-left: 351px;
+}
+.card-title{
+    text-align: center;
+    text-decoration: none;
+    color: #d5808d;
+    font-weight: 700;
+}
+#content .place-list{
+    margin-top: 32px;
+ 
+}
+#content .place-item{
+    width: 33.333333%;
+}
+#content .place-img{
+    width: 100%;
+    display: block;
+}
+#content .place-img:hover{
+    opacity: 0.6;
+}
+#content .place-body{
+    background-color: #fff;
+    padding: 16px;
+    font-size: 15px;
+}
+#content .place-heading{
+    font-size: 15px;
+    font: weight 550px;;
+
+}
+#content .place-time{
+    margin-top: 15px;
+    color: #757575;
+}
+#content .place-desc{
+    margin-top: 15px;
+    line-height: 1.4;
+}
+#content .place-buy-stadium{
+    color: #fff;
+    background-color: #000;
+    text-decoration: none;
+    padding: 11px 16px;
+    display: inline-block;
+    margin-top: 15px;
+}
+#content .place-buy-stadium:hover{
+    color: #000;
+    background-color: #ccc;
+}
+#content .contact-subheading{
+   margin-top: -32px;
+}
+.contact-content{
+    margin-top: 48px;
+}
+.contact-info{
+    font-size: 18px;
+    line-height: 1.4;
+}
+.contact-row{
+    transform: translateY(30px);
+}
+.contact-form{
+    font-size: 15px;
+}
+.contact-form .form-control{
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+.col .col-one{
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+.contact-form .submit-button{
+    background-color: #d5808d;
+    color: white;
+    border: 1px solid #d5808d;
+    padding: 10px 16px;
+    float: right;
+    text-decoration: none;
+}
+.contact-form .submit-button:hover{
+    background-color: #ccc;
+    color: #000;
+    cursor: pointer;
+    border: none;
+}
+.map-pic{
+    width: 100%; 
+}
+#footer{
+    text-align: center;
+}
+.social-list a{
+    // float: left;
+    text-align: center;
+    font-size: 24px;
+    text-decoration: none;
+    color: red;
+}
+

@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-light ">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link nav-title" href="/"><i class="fas fa-chart-area"></i> DRAW CHART</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/#book">TYPES OF CHART</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">CONTACT US</a>
+        </li>
+        {{!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            QUẢN LÝ
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="me/stored/courses">QUẢN LÝ SÂN BÓNG</a></li>
+            <li><hr class="dropdown-divider"></li> 
+             <li><a class="dropdown-item" href="/#">QUẢN LÝ KHÁCH HÀNG</a></li>
+          </ul>
+        </li> --}}
+      </ul>
+      <a class="btn btn-danger" style="margin-right: 16px;" href="/login"><i class="fas fa-user"></i></a>
+      
+    </div>
+  </div>
+</nav>
+{{!-- Back to top button --}}
+            <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-chevron-up"></i></button>
+            <script>
+                //Get the button
+                var mybutton = document.getElementById("myBtn");
+
+                // When the user scrolls down 20px from the top of the document, show the button
+                window.onscroll = function() {scrollFunction()};
+
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                        mybutton.style.display = "block";
+                    } else {
+                        mybutton.style.display = "none";
+                    }
+                }
+
+            // When the user clicks on the button, scroll to the top of the document
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }
+            </script>
+
+<style>
+  
+</style>

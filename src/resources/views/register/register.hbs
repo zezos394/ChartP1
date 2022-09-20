@@ -1,0 +1,118 @@
+<div id="backimg">
+            <div class="content">
+                <form class="box"  action="/accounts/register" method="post">
+                    <!-- <div class="container"> -->
+                        <div class="input-content">
+                            <h1 style="color: black">Register</h1>
+                            <input class="typing" type="text" placeholder="Username" name="username" required>
+                            <input class="typing" id="password" type="password" placeholder="Password" name="password" required>
+                            <div class="check-group">
+                                <input class="checkbox form-check-input" type="checkbox" onclick="showPassword()"> 
+                                <span class="checkbox-text">Show Password</span> 
+                            </div>
+                            <div>
+                                <input class="login-button" type="submit" value="Register">
+                            </div>
+                            <!-- </div> -->
+                            <div class="register my-4">
+                                <span  style="color: black;">Back to</span>
+                                <span><a href="/login" class="register-now">Log in</a></span>
+                            </div>
+                        </div>
+                        {{!-- <a href="/register">Quên mật khẩu?</a> --}}
+                </form>
+            </div>
+</div>
+<style>
+    #backimg{
+        padding-top: 50%; /* 50% chieu ngang cua chinh no */
+        background: url('https://img.freepik.com/free-photo/stock-market-forex-trading-graph_73426-190.jpg?w=2000') top center / cover ;
+        position: relative;
+    }
+    #backimg .content{
+        position: absolute;
+        bottom: 47px;
+        color: rgb(230, 230, 230);
+        width: 100%;
+        text-align: center;
+    }
+    .box{
+       padding-bottom: 5%;
+       
+    }
+    .input-content{
+        background-color: whitesmoke;
+        padding-top: 8px;
+        padding-bottom: 4px;
+        padding-left: 44px;
+        padding-right: 44px;
+        display: inline-block;
+        border-radius: 32px;
+    }
+    .box .typing{
+        border: 0;
+        background: none;
+        display: block;
+        margin: 12px auto;
+        border: 2px solid #d5808d;
+        padding: 15px 10px;
+        width: 200px;
+        outline: none;
+        font-weight: 500;
+        border-radius: 1.5rem;
+        transition: 0.25s;
+    }
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+    .box h1{
+        font-weight: 600;
+        text-transform: uppercase;
+        {{!-- font-family: 'Dongle', sans-serif; --}}
+    }
+
+    .box .typing:focus{
+        width: 250px;
+        border-color: aquamarine;
+    }
+    .check-group{
+        float:right;
+        margin-bottom: 8px;
+        margin-top: -8px;
+    }
+    .checkbox-text{
+        color:black;
+        font-size: 14px;
+    }
+    .login-button{
+        background: none;
+        border: 0;
+        display: inline-block;
+        border: 2px solid #d5808d;
+        padding: 16px 4px;
+        width: 180px;
+        outline: none;
+        font-weight: 500;
+        border-radius: 1.5rem;
+        transition: 0.25s;
+        cursor: pointer;
+    }
+    .login-button:hover{
+        background: linear-gradient(#d5808d, #df659e);
+        border: 0;
+    }
+    .register-now{
+        color: #d5808d;
+        font-weight: 500;
+        text-decoration: none;
+    }
+</style>
+
+<script>
+    function showPassword() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
